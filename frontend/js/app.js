@@ -2,7 +2,7 @@ angular.module('Refr', ['ui.router'])
   .config(MainRouter);
 
 function MainRouter($stateProvider, $urlRouterProvider, $locationProvider) {
-  $locationProvider.html5Mode(false) // true not working is something to do with server. Debug later! 
+  $locationProvider.html5Mode(true) // have to start server with angular-http-server :)
   $stateProvider
     .state('home', {
       url: '/',
@@ -29,6 +29,10 @@ function MainRouter($stateProvider, $urlRouterProvider, $locationProvider) {
       .state('game-form.refs', {
         url: '/refs',
         templateUrl: '/views/new-game-form/game-form-refs.html'
+      })
+      .state('game-form.summary', {
+        url: '/summary',
+        templateUrl: '/views/new-game-form/game-form-summarysubmit.html'
       })
   //should redirect people to homepage if URL not recognised.
   $urlRouterProvider.otherwise('/');

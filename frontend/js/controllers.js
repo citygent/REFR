@@ -5,8 +5,8 @@ angular.module('Refr')
 function MainCtrl() {
   this.title = 'better than the back of a fag packet'
 
-  this.formTeam = {}
-
+  this.formParams = {}
+  
 }
 
 function TeamCtrl() {
