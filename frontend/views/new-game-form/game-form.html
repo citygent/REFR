@@ -1,0 +1,11 @@
+<h1> I am a game form </h1>
+<ul id="game-form-status">
+  <li><a ui-sref-active="active" ui-sref=".teams">Teams</a></li>
+  <li><a ui-sref-active="active" ui-sref=".players">Players</a></li>
+  <li><a ui-sref-active="active" ui-sref=".timing">Timing</a></li>
+  <li><a ui-sref-active="active" ui-sref=".refs">Refs</a></li>
+</ul>
+
+<form id="new-game-form" ng-submit="someFunction()">
+  <div id="form-nested-view" ui-view></div>
+</form>

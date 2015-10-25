@@ -1,0 +1,13 @@
+body {
+  background: slategrey;
+}
+#game-form-status li{
+  display: inline-block;
+  text-align: center;
+}
+#game-form-status a {
+  text-decoration: none;
+}
+#game-form-status a.active {
+  text-decoration: underline;
+}
