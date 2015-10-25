@@ -1,0 +1,1 @@
+angular.module('refr', []); //ngResource or no?
