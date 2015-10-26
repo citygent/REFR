@@ -7,4 +7,8 @@ def games
   self.games_as_team1 + self.games_as_team2
 end
 
+def goal_count
+  self.players.inject(0) {|total, player| total + player.goals.count}
+end
+
 end

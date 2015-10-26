@@ -32,7 +32,7 @@ f3 = Game.create(team1: t2, team2: t3)
 
 # ==========================================================
 
-f3goals = Goal.create([ # 5 - 3
+f3goals = Goal.create([ # 5 - 1
   {game: f3, player: p8},
   {game: f3, player: p7},
   {game: f3, player: p9},
