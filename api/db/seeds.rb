@@ -32,5 +32,4 @@ g3 = Game.create(team1: t2, team2: t3)
 
 
 
-
 puts "seeded with #{Player.all.count} players, and #{Team.all.count} teams, they have played #{Game.all.count} games."
