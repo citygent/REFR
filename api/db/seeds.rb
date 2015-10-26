@@ -26,10 +26,31 @@ p9 = Player.create(name: 'Danielle', team: t3)
 
 # ==========================================================
 
-g1 = Game.create(team1: t1, team2: t2)
-g2 = Game.create(team1: t1, team2: t3)
-g3 = Game.create(team1: t2, team2: t3)
+f1 = Game.create(team1: t1, team2: t2)
+f2 = Game.create(team1: t1, team2: t3)
+f3 = Game.create(team1: t2, team2: t3)
 
+# ==========================================================
 
+f3goals = Goal.create([ # 5 - 3
+  {game: f3, player: p8},
+  {game: f3, player: p7},
+  {game: f3, player: p9},
+  {game: f3, player: p9},
+  {game: f3, player: p9},
+  {game: f3, player: p5}
+  ])
+f2goals = Goal.create([ # 3 - 1
+  {game: f2, player: p1},
+  {game: f2, player: p1},
+  {game: f2, player: p7},
+  {game: f2, player: p3}
+  ])
+f1goals = Goal.create([ # 3 - 1
+  {game: f1, player: p4},
+  {game: f1, player: p1},
+  {game: f1, player: p2},
+  {game: f1, player: p3}
+  ])
 
-puts "seeded with #{Player.all.count} players, and #{Team.all.count} teams, they have played #{Game.all.count} games."
+puts "seeded with #{Player.all.count} players, and #{Team.all.count} teams, they have played #{Game.all.count} games. #{Goal.all.count} goals were scored. "
