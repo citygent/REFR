@@ -1,4 +1,12 @@
 Rails.application.configure do
+
+config.middleware.use Rack::Cors do
+  allow do
+    origins 'localhost:8080'
+    resource '*', :headers => :any, :methods => [:get, :post, :options, :delete]
+  end
+end
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on

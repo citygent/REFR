@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+
+
+  namespace :v1, defaults: { format: :json } do
+    get :teams, to: 'teams#index'
+    post :teams, to: 'teams#create'
+    get 'teams/:id', to: 'teams#show'
+  end
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
