@@ -1,7 +1,7 @@
-<label for="GameDuration">Game Duration</label><br>
-<input name="GameDuration" type="time" ng-model="ctrl.formParams.duration"> 
+<label>Game Duration (in minutes)
+<input name="duration" type="number" ng-model="NewGame.formParams.duration" ng-init="NewGame.formParams.duration = 45"> 
+</label>
 <br>
-Vs
-<br>
-<label for="periods">How Many Periods?</label><br>
-<input name="periods" type="number" ng-model="ctrl.formParams.periods"> 
+<label for="periods">How Many Periods?
+<input name="periods" type="number" ng-model="NewGame.formParams.periods" ng-init="NewGame.formParams.periods = 3"> 
+</label>

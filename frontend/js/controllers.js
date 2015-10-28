@@ -13,8 +13,6 @@ function NewGameCtrl($http) {
 
   self.formParams = {};
   self.allTeams = [];
-  
-  self.GameObject= {};
 
   self.addTeam = addTeam
   function addTeam() {
@@ -37,6 +35,18 @@ function NewGameCtrl($http) {
         self.playersTeam1 = response.data;
       })
   }
+  // I AM AWARE THESE TWO FUNCTIONS COULD BE REFACTORED INTO ONE. 
+  self.playersTeam2 = []
+  self.getPlayers2 = getPlayers2
+  function getPlayers2(TeamId) {
+    $http
+      .get('http://localhost:3000/v1/teams/'+ TeamId +'/players')
+      .then(function(response, err) {
+        console.log('response', response.data)
+        if (err) console.log(err);
+        self.playersTeam2 = response.data;
+      })
+  }
 
   function getTeams() {
     $http
@@ -49,17 +59,11 @@ function NewGameCtrl($http) {
   }
   getTeams()
 
-  self.submitNewGameForm = submitNewGameForm;
+
+  self.submitNewGameForm = submitNewGameForm
   function submitNewGameForm() {
     console.log('Whole Game Form Submitted')
   }
 
 
-}
-
-
-function PlayersCtrl() {
-  // get team name from mainctrl
-  // http get players based on this team name
-  // populate dropdowns based on these values
 }

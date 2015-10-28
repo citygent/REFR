@@ -1,9 +1,14 @@
 
 <p>{{ NewGame.formParams.team1.name }} Players:</p>
-<select ng-options="player.name for player in NewGame.playersTeam1" ng-model="NewGame.formParams.team1.player1"></select>
+<select ng-init="NewGame.formParams.team1.player1 = NewGame.playersTeam1[0]" ng-options="player.name for player in NewGame.playersTeam1" ng-model="NewGame.formParams.team1.player1"></select>
 
-<select ng-options="player.name for player in NewGame.playersTeam1" ng-model="NewGame.formParams.team1.player2"></select>
+<select ng-init="NewGame.formParams.team1.player2 = NewGame.playersTeam1[1]" ng-options="player.name for player in NewGame.playersTeam1" ng-model="NewGame.formParams.team1.player2"></select>
 
-<select ng-options="player.name for player in NewGame.playersTeam1" ng-model="NewGame.formParams.team1.player3"></select>
+<select ng-init="NewGame.formParams.team1.player3 = NewGame.playersTeam1[2]" ng-options="player.name for player in NewGame.playersTeam1" ng-model="NewGame.formParams.team1.player3"></select>
 
 <p>{{ NewGame.formParams.team2.name }} Players:</p>
+<select ng-init="NewGame.formParams.team2.player1 = NewGame.playersTeam2[0]" ng-options="player.name for player in NewGame.playersTeam2" ng-model="NewGame.formParams.team2.player1"></select>
+
+<select ng-init="NewGame.formParams.team2.player2 = NewGame.playersTeam2[1]" ng-options="player.name for player in NewGame.playersTeam2" ng-model="NewGame.formParams.team2.player2"></select>
+
+<select ng-init="NewGame.formParams.team2.player3 = NewGame.playersTeam2[2]" ng-options="player.name for player in NewGame.playersTeam2" ng-model="NewGame.formParams.team2.player3"></select>
