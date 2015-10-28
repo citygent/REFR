@@ -1,7 +1,7 @@
 <label>Team 1 are:<br>
   <select ng-options="team.name for team in NewGame.allTeams" ng-model="NewGame.formParams.team1" ng-change="NewGame.getPlayers1(NewGame.formParams.team1.id)"></select>
 </label>
-<a ng-click="newTeamForm = !newTeamForm">+</a>
+<button ng-click="newTeamForm = !newTeamForm">+</button>
 <br>
 
 
@@ -13,7 +13,7 @@ Vs
     <input type="text" ng-model="NewGame.newTeam.team.name"></label>
   <label>New Team city:
     <input type="text" ng-model="NewGame.newTeam.team.city"></label>
-  <a type="submit" ng-click="NewGame.addTeam()">add</a><br/>
+  <button type="submit" ng-click="NewGame.addTeam()">add</button><br/>
 </ng-form>
 <br>
 <br>
@@ -21,7 +21,7 @@ Vs
 <label>Team 2 are:<br>
    <select ng-options="team.name for team in NewGame.allTeams" ng-model="NewGame.formParams.team2" ng-change="NewGame.getPlayers2(NewGame.formParams.team2.id)"></select>
 </label>
-<a ng-click="newTeamForm = !newTeamForm">+</a>
+<button ng-click="newTeamForm = !newTeamForm">+</button>
 <br>
 
 </div>

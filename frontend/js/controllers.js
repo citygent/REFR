@@ -48,6 +48,28 @@ function NewGameCtrl($http) {
       })
   }
 
+  self.addPlayer1 = addPlayer1
+  self.addPlayer2 = addPlayer2
+  // Not very dry I know but time...
+  self.newPlayer1 = {};
+  self.newPlayer2 = {};
+  function addPlayer1(x) {
+    self.newPlayer.player.team_id = x
+    $http
+      .post('http://localhost:3000/v1/players', self.newPlayer)
+      .then(function(response) {
+        self.playersTeam1.push(response.data)
+      })
+  }
+  function addPlayer2(x) {
+    self.newPlayer.player.team_id = x
+    $http
+      .post('http://localhost:3000/v1/players', self.newPlayer)
+      .then(function(response) {
+        self.playersTeam2.push(response.data)
+      })
+  }
+
   function getTeams() {
     $http
       .get('http://localhost:3000/v1/teams')
@@ -58,6 +80,7 @@ function NewGameCtrl($http) {
       })
   }
   getTeams()
+
 
 
   self.submitNewGameForm = submitNewGameForm

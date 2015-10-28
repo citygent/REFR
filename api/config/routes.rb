@@ -6,6 +6,10 @@ Rails.application.routes.draw do
     post :teams, to: 'teams#create'
     get 'teams/:id', to: 'teams#show'
     get 'teams/:id/players', to: 'teams#players'
+
+    post :players, to: 'players#create'
+    get 'players/:id/team', to: 'players#team'
+    get :players, to: 'players#index'
   end
 
 

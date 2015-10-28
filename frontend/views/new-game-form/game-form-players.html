@@ -6,9 +6,29 @@
 
 <select ng-init="NewGame.formParams.team1.player3 = NewGame.playersTeam1[2]" ng-options="player.name for player in NewGame.playersTeam1" ng-model="NewGame.formParams.team1.player3"></select>
 
+<button ng-click="newPlayerForm1 = !newPlayerForm1">+</button>
+<br>
+
+<ng-form name="newPlayer1" ng-show="newPlayerForm1">
+  <label>New Player name:
+    <input type="text" ng-model="NewGame.newPlayer1.player.name"></label>
+
+  <button type="submit" ng-click="NewGame.addPlayer1()">add</button><br/>
+</ng-form>
+
 <p>{{ NewGame.formParams.team2.name }} Players:</p>
 <select ng-init="NewGame.formParams.team2.player1 = NewGame.playersTeam2[0]" ng-options="player.name for player in NewGame.playersTeam2" ng-model="NewGame.formParams.team2.player1"></select>
 
 <select ng-init="NewGame.formParams.team2.player2 = NewGame.playersTeam2[1]" ng-options="player.name for player in NewGame.playersTeam2" ng-model="NewGame.formParams.team2.player2"></select>
 
 <select ng-init="NewGame.formParams.team2.player3 = NewGame.playersTeam2[2]" ng-options="player.name for player in NewGame.playersTeam2" ng-model="NewGame.formParams.team2.player3"></select>
+
+<button ng-click="newPlayerForm2 = !newPlayerForm2">+</button>
+<br>
+
+<ng-form name="newPlayer2" ng-show="newPlayerForm2">
+  <label>New Player name:
+    <input type="text" ng-model="NewGame.newPlayer2.player.name"></label>
+
+  <button type="submit" ng-click="NewGame.addPlayer2(NewGame.formParams.team2.id)">add</button><br/>
+</ng-form>
