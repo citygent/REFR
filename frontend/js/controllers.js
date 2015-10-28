@@ -30,7 +30,6 @@ function TeamCtrl($http) {
   }
 
   function addTeam() {
-    console.log(self.newTeam)
     $http
       .post('http://localhost:3000/v1/teams', self.newTeam)
       .then(function(response) {
@@ -45,7 +44,6 @@ function TeamCtrl($http) {
       .get('http://localhost:3000/v1/teams')
       .then(function(response, err) {
         if (err) console.log(err);
-        console.log(response.data)
         self.all = response.data;
       })
   }
@@ -54,4 +52,11 @@ function TeamCtrl($http) {
 
 
 
+}
+
+
+function PlayersCtrl() {
+  // get team name from mainctrl
+  // http get players based on this team name
+  // populate dropdowns based on these values
 }

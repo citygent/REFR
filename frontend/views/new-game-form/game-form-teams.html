@@ -2,10 +2,10 @@
 
 <label for="team1">Team 1</label><br>
 <!-- <input name="team1" type="text" ng-model="ctrl.formParams.team1.name">  -->
-<select name="team1" ng-model="ctrl.formParams.team1.name">
-  <option ng-repeat="team in team.all" value="{{team.id}}">{{team.name}}</option>
-</select>
-
+<select ng-model="ctrl.formParams.team1" ng-options="team.name for team in team.all"></select>
+<!-- <select name="team1" ng-model="ctrl.formParams.team1">
+  <option ng-repeat="team in team.all" value="{'id':'{{team.id}}', 'name':'{{team.name}}'}">{{team.name}}</option>
+</select> -->
 <button ng-click="team.toggleForm()">+</button>
 <br>
 <ng-form name="addTeam" ng-show="team.showForm">
@@ -15,15 +15,22 @@
   <input type="text" ng-model="team.newTeam.team.city">
   <button type="submit" ng-click="team.addTeam()">add</button><br/>
 </ng-form>
-
 <br>
 <br>
 Vs
 <br>
 <br>
 <label for="team2">Team 2</label><br>
-<!-- <input name="team2" type="text" ng-model="ctrl.formParams.team2.name"> -->
-  <select name="team2" ng-model="ctrl.formParams.team2.name" ng-controller="TeamCtrl as team">
-    <option ng-repeat="team in team.all" value="{{team.id}}">{{team.name}}</option>
-  </select>
+<select ng-model="ctrl.formParams.team2" ng-options="team.name for team in team.all"></select>
+  <button ng-click="team.toggleForm()">+</button>
+<br>
+
+
+<ng-form name="addTeam" ng-show="team.showForm">
+  <label for="team-name">Team name:</label>
+    <input type="text" ng-model="team.newTeam.team.name">
+  <label for="team-city">Team city:</label>
+  <input type="text" ng-model="team.newTeam.team.city">
+  <button type="submit" ng-click="team.addTeam()">add</button><br/>
+</ng-form>
 </div>
