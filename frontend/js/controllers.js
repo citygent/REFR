@@ -2,10 +2,30 @@ angular.module('Refr')
   .controller('MainCtrl', MainCtrl)
   .controller('NewGameCtrl', NewGameCtrl)
 
+MainCtrl.$inject = ['$timeout'];
 NewGameCtrl.$inject = ['$http'];
 
-function MainCtrl() {
-  this.title = 'better than the back of a fag packet'
+function MainCtrl($timeout) {
+  var self = this;
+  self.title = 'better than the back of a fag packet'
+
+  self.counter = 100;
+  var timer;
+
+  //1000 milliseconds = 1 second
+
+  self.countdown = function() {
+      timer = $timeout(function() {
+         console.log(self.counter);
+       self.counter--;   
+       self.countdown();   
+      }, 1000);
+    };
+         
+  self.stop = function(){
+     $timeout.cancel(timer);
+      
+      } 
 }
 
 function NewGameCtrl($http) {
@@ -80,8 +100,6 @@ function NewGameCtrl($http) {
       })
   }
   getTeams()
-
-
 
   self.submitNewGameForm = submitNewGameForm
   function submitNewGameForm() {

@@ -1,2 +1,6 @@
 <h1>HOMEPAGE</h1>
-<a ui-sref="game-form">new game</a>
+<a ui-sref="game-form">{{ ctrl.title }}</a>
+
+<p>{{ ctrl.counter }}</p>
+<button ng-click="ctrl.stop()">Stop</button>
+<button ng-click="ctrl.countdown()">Start</button>     
