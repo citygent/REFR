@@ -17,6 +17,11 @@ class V1::TeamsController < ApplicationController
     # binding.pry
   end
 
+  def players
+    @players = Team.find(params[:id]).players
+    render json: @players
+  end
+
 
   private
     # Secure innit.

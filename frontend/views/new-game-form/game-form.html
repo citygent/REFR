@@ -7,10 +7,12 @@
   <li><a ui-sref-active="active" ui-sref=".summary">PLAY</a></li>
 </ul>
 
-<ng-form id="new-game-form" ng-submit="ctrl.someFunction()">
+<ng-form id="new-game-form">
   <div id="form-nested-view" ui-view></div>
+  <!-- SUBMIT BUTTON HERE TO SHOW/HIDE BASED ON VALIDATION -->
+  <button type="submit" ng-submit="NewGame.submitNewGameForm()">START GAME</button>
 </ng-form>
 
 <p>
-{{ ctrl.formParams }}
+{{ NewGame.formParams }}
 </p>

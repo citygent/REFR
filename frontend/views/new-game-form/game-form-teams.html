@@ -1,36 +1,27 @@
-<div ng-controller="TeamCtrl as team">
-
-<label for="team1">Team 1</label><br>
-<!-- <input name="team1" type="text" ng-model="ctrl.formParams.team1.name">  -->
-<select ng-model="ctrl.formParams.team1" ng-options="team.name for team in team.all"></select>
-<!-- <select name="team1" ng-model="ctrl.formParams.team1">
-  <option ng-repeat="team in team.all" value="{'id':'{{team.id}}', 'name':'{{team.name}}'}">{{team.name}}</option>
-</select> -->
-<button ng-click="team.toggleForm()">+</button>
+<label>Team 1 are:<br>
+  <select ng-options="team.name for team in NewGame.allTeams" ng-model="NewGame.formParams.team1" ng-change="NewGame.getPlayers1(NewGame.formParams.team1.id)"></select>
+</label>
+<button ng-click="newTeamForm = !newTeamForm">+</button>
 <br>
-<ng-form name="addTeam" ng-show="team.showForm">
-  <label for="team-name">Team name:</label>
-    <input type="text" ng-model="team.newTeam.team.name">
-  <label for="team-city">Team city:</label>
-  <input type="text" ng-model="team.newTeam.team.city">
-  <button type="submit" ng-click="team.addTeam()">add</button><br/>
-</ng-form>
+
+
 <br>
 <br>
 Vs
-<br>
-<br>
-<label for="team2">Team 2</label><br>
-<select ng-model="ctrl.formParams.team2" ng-options="team.name for team in team.all"></select>
-  <button ng-click="team.toggleForm()">+</button>
-<br>
-
-
-<ng-form name="addTeam" ng-show="team.showForm">
-  <label for="team-name">Team name:</label>
-    <input type="text" ng-model="team.newTeam.team.name">
-  <label for="team-city">Team city:</label>
-  <input type="text" ng-model="team.newTeam.team.city">
-  <button type="submit" ng-click="team.addTeam()">add</button><br/>
+<ng-form name="newTeam" ng-show="newTeamForm">
+  <label>New Team name:
+    <input type="text" ng-model="NewGame.newTeam.team.name"></label>
+  <label>New Team city:
+    <input type="text" ng-model="NewGame.newTeam.team.city"></label>
+  <button type="submit" ng-click="NewGame.addTeam()">add</button><br/>
 </ng-form>
+<br>
+<br>
+
+<label>Team 2 are:<br>
+   <select ng-options="team.name for team in NewGame.allTeams" ng-model="NewGame.formParams.team2" ng-change="NewGame.getPlayers2()"></select>
+</label>
+<button ng-click="newTeamForm = !newTeamForm">+</button>
+<br>
+
 </div>

@@ -1,10 +1,9 @@
-<p ng-controller="TeamCtrl as team">{{ ctrl.formParams.team1.name }} Line-up:</p>
-<input name="team1player1" type="text" ng-model="ctrl.formParams.team1.players.p1">
-<input name="team1player2" type="text" ng-model="ctrl.formParams.team1.players.p2">
-<input name="team1player3" type="text" ng-model="ctrl.formParams.team1.players.p3">
 
-<p>{{ ctrl.formParams.team2.name }} Line-up:</p>
-<input name="team2player1" type="text" ng-model="ctrl.formParams.team2.players.p1">
-<input name="team2player2" type="text" ng-model="ctrl.formParams.team2.players.p2">
-<input name="team2player3" type="text" ng-model="ctrl.formParams.team2.players.p3">
+<p>{{ NewGame.formParams.team1.name }} Players:</p>
+<select ng-options="player.name for player in NewGame.playersTeam1" ng-model="NewGame.formParams.team1.player1"></select>
 
+<select ng-options="player.name for player in NewGame.playersTeam1" ng-model="NewGame.formParams.team1.player2"></select>
+
+<select ng-options="player.name for player in NewGame.playersTeam1" ng-model="NewGame.formParams.team1.player3"></select>
+
+<p>{{ NewGame.formParams.team2.name }} Players:</p>

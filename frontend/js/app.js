@@ -2,17 +2,16 @@ angular.module('Refr', ['ui.router'])
   .config(MainRouter);
 
 function MainRouter($stateProvider, $urlRouterProvider, $locationProvider) {
-  $locationProvider.html5Mode(true) // have to start server with angular-http-server :)
+  $locationProvider.html5Mode(true) // Start server with angular-http-server :)
   $stateProvider
     .state('home', {
       url: '/',
-      // template: '<h1>hiii</h1>', // Test
       templateUrl: '/views/home.html' // May put in subdir, specify route if doing so!
     })
     .state('game-form', {
       url: '/game-form',
       templateUrl: '/views/new-game-form/game-form.html',
-      controller: 'MainCtrl'
+      controller: 'NewGameCtrl as NewGame'
     }) // nested state, so url will be /game-form/teams
       .state('game-form.teams', {
         url: '/teams',

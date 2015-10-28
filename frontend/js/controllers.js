@@ -1,55 +1,58 @@
 angular.module('Refr')
   .controller('MainCtrl', MainCtrl)
-  .controller('TeamCtrl', TeamCtrl)
+  .controller('NewGameCtrl', NewGameCtrl)
 
-TeamCtrl.$inject = ['$http'];
+NewGameCtrl.$inject = ['$http'];
 
 function MainCtrl() {
   this.title = 'better than the back of a fag packet'
-
-  this.formParams = {}
-  
-  this.someFunction = someFunction
-
-  function someFunction() {
-    console.log('Whole Game Form Submitted')
-  }
-
 }
 
-function TeamCtrl($http) {
-  this.title = 'Clerks FTW'
+function NewGameCtrl($http) {
   var self = this;
-  self.all = [];
-  self.showForm = false;
-  self.toggleForm = toggleForm
+
+  self.formParams = {};
+  self.allTeams = [];
+  
+  self.GameObject= {};
+
   self.addTeam = addTeam
-
-  function toggleForm() {
-    self.showForm = !self.showForm;
-  }
-
   function addTeam() {
     $http
       .post('http://localhost:3000/v1/teams', self.newTeam)
       .then(function(response) {
-        self.all.push(response.data)
+        self.allTeams.push(response.data)
       })
     self.newTeam = {};
   }
 
+  self.playersTeam1 = []
+  self.getPlayers1 = getPlayers1
+  function getPlayers1(TeamId) {
+    $http
+      .get('http://localhost:3000/v1/teams/'+ TeamId +'/players')
+      .then(function(response, err) {
+        console.log('response', response.data)
+        if (err) console.log(err);
+        self.playersTeam1 = response.data;
+      })
+  }
 
   function getTeams() {
     $http
       .get('http://localhost:3000/v1/teams')
       .then(function(response, err) {
+        console.log(response.data)
         if (err) console.log(err);
-        self.all = response.data;
+        self.allTeams = response.data;
       })
   }
   getTeams()
 
-
+  self.submitNewGameForm = submitNewGameForm;
+  function submitNewGameForm() {
+    console.log('Whole Game Form Submitted')
+  }
 
 
 }
