@@ -7,8 +7,6 @@ class V1::PlayersController < ApplicationController
   def create
     binding.pry
     @player = Player.new(player_params)
-    puts 'THE FUCKIGN PARAMS ARE:'
-    puts player_params
     if @player.save
       render json: @player
     end

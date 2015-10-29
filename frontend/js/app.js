@@ -33,6 +33,11 @@ function MainRouter($stateProvider, $urlRouterProvider, $locationProvider) {
         url: '/summary',
         templateUrl: '/views/new-game-form/game-form-summarysubmit.html'
       })
+    .state('game-play', {
+      url: '/game-play',
+      templateUrl: '/views/game-play/game-play.html',
+      controller: 'GamePlayCtrl as GamePlay'
+    })
   //should redirect people to homepage if URL not recognised.
   $urlRouterProvider.otherwise('/');
 }

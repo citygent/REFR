@@ -1,9 +1,12 @@
 angular.module('Refr')
   .controller('MainCtrl', MainCtrl)
   .controller('NewGameCtrl', NewGameCtrl)
+  .controller('GamePlayCtrl', GamePlayCtrl)
+  .factory('gameService', gameService)
 
 MainCtrl.$inject = ['$timeout', '$scope'];
-NewGameCtrl.$inject = ['$http'];
+NewGameCtrl.$inject = ['$http', 'gameService'];
+GamePlayCtrl.$inject = ['gameService']
 
 function MainCtrl($timeout, $scope) {
   var self = this;
@@ -54,9 +57,31 @@ function MainCtrl($timeout, $scope) {
   //     } 
 }
 
-function NewGameCtrl($http) {
+function GamePlayCtrl(gameService) {
+  self = this;
+  self.gameTime = gameService.getGameTime()
+}
+
+function gameService(){
   var self = this;
 
+  self.gameTime = 12;
+
+  var gameService = {
+    getGameTime: function() {
+      return self.gameTime;
+    },
+    setGameTime: function(time) {
+      self.gameTime = time;
+    }
+  }
+  return gameService;
+}
+
+function NewGameCtrl($http, gameService) {
+  var self = this;
+
+  self.test = gameService.getGameTime()
   self.formParams = {};
   self.allTeams = [];
 
@@ -109,8 +134,8 @@ function NewGameCtrl($http) {
       })
     self.newPlayer1 = {}
   }
-  function addPlayer2(x) {
-    self.newPlayer2.player.team_id = x
+  function addPlayer2(teamId) {
+    self.newPlayer2.player.team_id = teamId
     $http
       .post('http://localhost:3000/v1/players', self.newPlayer2)
       .then(function(response) {
@@ -133,6 +158,8 @@ function NewGameCtrl($http) {
   self.submitNewGameForm = submitNewGameForm
   function submitNewGameForm() {
     console.log('Whole Game Form Submitted')
+    console.log(self.formParams)
+    gameService.setGameTime(69)
   }
 
 
