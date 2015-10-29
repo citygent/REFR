@@ -1,5 +1,4 @@
 <h1> I am a game form </h1>
-<h1> {{ NewGame.test }}</h1>
 <ul id="game-form-status">
   <li><a ui-sref-active="active" ui-sref=".teams">Teams</a></li>
   <li><a ui-sref-active="active" ui-sref=".players">Players</a></li>
@@ -10,9 +9,5 @@
 
 <ng-form id="new-game-form">
   <div id="form-nested-view" ui-view></div>
-  <!-- SUBMIT BUTTON HERE TO SHOW/HIDE BASED ON VALIDATION -->
 </ng-form>
 
-<p>
-{{ NewGame.formParams }}
-</p>
