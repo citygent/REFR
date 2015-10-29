@@ -1,4 +1,4 @@
-angular.module('Refr', ['ui.router'])
+angular.module('Refr', ['ui.router', 'timer'])
   .config(MainRouter);
 
 function MainRouter($stateProvider, $urlRouterProvider, $locationProvider) {

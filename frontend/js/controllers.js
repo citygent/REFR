@@ -2,30 +2,56 @@ angular.module('Refr')
   .controller('MainCtrl', MainCtrl)
   .controller('NewGameCtrl', NewGameCtrl)
 
-MainCtrl.$inject = ['$timeout'];
+MainCtrl.$inject = ['$timeout', '$scope'];
 NewGameCtrl.$inject = ['$http'];
 
-function MainCtrl($timeout) {
+function MainCtrl($timeout, $scope) {
   var self = this;
   self.title = 'better than the back of a fag packet'
 
-  self.counter = 100;
-  var timer;
+  // var end = new Date(2015, 9, 29, 13, 0, 0, 0)
+  // self.timespan = countdown(new Date(), end, -2033)
 
-  //1000 milliseconds = 1 second
+  // self.counter = 100000
+  // self.goals = []
 
-  self.countdown = function() {
-      timer = $timeout(function() {
-         console.log(self.counter);
-       self.counter--;   
-       self.countdown();   
-      }, 1000);
-    };
+  // self.countdown = function () {
+  //   console.log('start')
+  //   self.timer = $timeout(function() {
+  //     self.counter--;
+  //     self.countdown();
+  //   }, 1);
+  // };
+
+  // self.stop = function () {
+  //   console.log('stop')
+  //   $timeout.cancel(self.timer);
+  //   self.timer = null;
+  // };
+
+  // self.goal = function () {
+  //   console.log('goal')
+  //   self.stop();
+  //   self.goals.push(self.counter);
+  // };
+// ========================================
+  // self.counter = 100;
+  // var timer;
+
+  // //1000 milliseconds = 1 second
+
+  // self.countdown = function() {
+  //     timer = $timeout(function() {
+  //        console.log(self.counter);
+  //      self.counter--;   
+  //      self.countdown();   
+  //     }, 1000);
+  //   };
          
-  self.stop = function(){
-     $timeout.cancel(timer);
+  // self.stop = function(){
+  //    $timeout.cancel(timer);
       
-      } 
+  //     } 
 }
 
 function NewGameCtrl($http) {
@@ -73,21 +99,24 @@ function NewGameCtrl($http) {
   // Not very dry I know but time...
   self.newPlayer1 = {};
   self.newPlayer2 = {};
-  function addPlayer1(x) {
-    self.newPlayer.player.team_id = x
+  function addPlayer1(teamId) {
+    console.log(self.newPlayer1)
+    self.newPlayer1.player.team_id = teamId
     $http
-      .post('http://localhost:3000/v1/players', self.newPlayer)
+      .post('http://localhost:3000/v1/players', self.newPlayer1)
       .then(function(response) {
         self.playersTeam1.push(response.data)
       })
+    self.newPlayer1 = {}
   }
   function addPlayer2(x) {
-    self.newPlayer.player.team_id = x
+    self.newPlayer2.player.team_id = x
     $http
-      .post('http://localhost:3000/v1/players', self.newPlayer)
+      .post('http://localhost:3000/v1/players', self.newPlayer2)
       .then(function(response) {
         self.playersTeam2.push(response.data)
       })
+    self.newPlayer2 = {};
   }
 
   function getTeams() {

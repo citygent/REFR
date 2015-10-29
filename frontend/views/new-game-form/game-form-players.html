@@ -13,7 +13,7 @@
   <label>New Player name:
     <input type="text" ng-model="NewGame.newPlayer1.player.name"></label>
 
-  <button type="submit" ng-click="NewGame.addPlayer1()">add</button><br/>
+  <button type="submit" ng-click="NewGame.addPlayer1(NewGame.formParams.team1.id)">add</button><br/>
 </ng-form>
 
 <p>{{ NewGame.formParams.team2.name }} Players:</p>

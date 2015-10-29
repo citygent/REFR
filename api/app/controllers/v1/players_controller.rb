@@ -5,6 +5,7 @@ class V1::PlayersController < ApplicationController
   end
 
   def create
+    binding.pry
     @player = Player.new(player_params)
     puts 'THE FUCKIGN PARAMS ARE:'
     puts player_params
