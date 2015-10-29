@@ -1,2 +1,6 @@
-<h1>GamePlay Page</h1>
-<h1>{{ GamePlay.gameTime }}</h1>
+<h2>{{ GamePlay.title }}</h2>
+<h1>{{ GamePlay.gameTime }} Minute Game.</h1>
+
+<br>
+<timer end-time="GamePlay.gameTimePreped">{{minutes}} minutes, {{seconds}} seconds, {{millis | limitTo : -3 }}</timer>
+<br>

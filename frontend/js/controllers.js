@@ -12,60 +12,20 @@ function MainCtrl($timeout, $scope) {
   var self = this;
   self.title = 'better than the back of a fag packet'
 
-  // var end = new Date(2015, 9, 29, 13, 0, 0, 0)
-  // self.timespan = countdown(new Date(), end, -2033)
-
-  // self.counter = 100000
-  // self.goals = []
-
-  // self.countdown = function () {
-  //   console.log('start')
-  //   self.timer = $timeout(function() {
-  //     self.counter--;
-  //     self.countdown();
-  //   }, 1);
-  // };
-
-  // self.stop = function () {
-  //   console.log('stop')
-  //   $timeout.cancel(self.timer);
-  //   self.timer = null;
-  // };
-
-  // self.goal = function () {
-  //   console.log('goal')
-  //   self.stop();
-  //   self.goals.push(self.counter);
-  // };
-// ========================================
-  // self.counter = 100;
-  // var timer;
-
-  // //1000 milliseconds = 1 second
-
-  // self.countdown = function() {
-  //     timer = $timeout(function() {
-  //        console.log(self.counter);
-  //      self.counter--;   
-  //      self.countdown();   
-  //     }, 1000);
-  //   };
-         
-  // self.stop = function(){
-  //    $timeout.cancel(timer);
-      
-  //     } 
 }
 
 function GamePlayCtrl(gameService) {
   self = this;
   self.gameTime = gameService.getGameTime()
+  self.gameTimePreped = ((self.gameTime * 60000) + Date.now())
+
+  self.title = 'better than the back of a fag packet'
 }
 
 function gameService(){
   var self = this;
 
-  self.gameTime = 12;
+  self.gameTime = 15; // default.
 
   var gameService = {
     getGameTime: function() {
@@ -81,7 +41,6 @@ function gameService(){
 function NewGameCtrl($http, gameService) {
   var self = this;
 
-  self.test = gameService.getGameTime()
   self.formParams = {};
   self.allTeams = [];
 
@@ -158,8 +117,7 @@ function NewGameCtrl($http, gameService) {
   self.submitNewGameForm = submitNewGameForm
   function submitNewGameForm() {
     console.log('Whole Game Form Submitted')
-    console.log(self.formParams)
-    gameService.setGameTime(69)
+    gameService.setGameTime(self.formParams.duration)
   }
 
 
