@@ -5,7 +5,6 @@ class V1::PlayersController < ApplicationController
   end
 
   def create
-    binding.pry
     @player = Player.new(player_params)
     if @player.save
       render json: @player

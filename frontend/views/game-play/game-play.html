@@ -1,8 +1,7 @@
-<h2>{{ GamePlay.title }}</h2>
-<h1>{{ GamePlay.gameTime }} Minute Game.</h1>
+<h2>{{ GamePlay.gameTime }} Minute Game.</h2>
 
 <br>
-<timer end-time="GamePlay.gameTimePreped">{{minutes}} minutes, {{seconds}} seconds, {{millis | limitTo : -3 }}</timer>
+<h1><timer end-time="GamePlay.gameTimePreped">{{minutes}} : {{seconds}} : {{millis | limitTo : -3 }}</timer></h1>
 <br>
 
 <!-- <timer interval="1000">{{hours}} hours, {{minutes}} minutes, {{seconds}} seconds, {{millis | limitTo : -3 }} milliseconds.</timer><br>
